@@ -1,0 +1,41 @@
+body {
+  background-color: #ffffff; /* Cor de fundo da página */
+}
+
+.container {
+  max-width: 50px; /* Largura máxima do contêiner */
+  margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+  padding: 0px; /* Espaçamento interno do contêiner */
+  /* Removido o background-color para evitar a box atrás da foto */
+}
+
+.container img {
+  max-width: 700px; /* Ajuste o valor conforme necessário */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 2%;
+}
+
+
+h1 {
+  color: #000000; /* Cor do título da página inicial */
+  text-align: center; /* Centraliza o cabeçalho */
+}
+
+.lead {
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo para a barra de navegação */
+.navbar {
+  background-color: #f0d53c; /* Cor de fundo amarela para a barra de navegação */
+  box-shadow: 0 1px 3px rgb(19, 19, 19); /* Sombra suave */
+}
+
+.navbar .nav-link {
+  color: #000000; /* Cor do texto dos links */
+}
+
+.navbar .nav-link:hover {
+  color: #000000; /* Cor do texto ao passar o mouse */
+  transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
+}
