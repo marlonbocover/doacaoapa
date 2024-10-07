@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Doador</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Detalhes do Doador</h1>
+        <p><strong>ID:</strong> <%= donor._id %></p>
+        <p><strong>Nome:</strong> <%= donor.name %></p>
+        <p><strong>Telefone:</strong> <%= donor.phone %></p>
+        <p><strong>Endereço:</strong> <%= donor.address %></p>
+        <h2>Doações Realizadas</h2>
+        <ul>
+            <% donations.forEach(donation => { %>
+                <li><%= donation.items.join(', ') %> - <%= donation.donationDate.toDateString() %></li>
+            <% }) %>
+        </ul>
+        <a href="/donors">Voltar para a Lista de Doadores</a>
+    </div>
+</body>
+</html>

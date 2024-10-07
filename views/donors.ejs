@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Doadores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+        }
+        table {
+            width: 100%; /* Largura total da tabela */
+            border-collapse: collapse; /* Remove espaços entre as bordas das células */
+            margin-top: 20px; /* Espaço acima da tabela */
+        }
+        th, td {
+            padding: 15px; /* Espaçamento interno */
+            text-align: left; /* Alinhamento à esquerda */
+            border: 1px solid #ddd; /* Borda leve */
+        }
+        th {
+            background-color: #f2f2f2; /* Fundo leve para o cabeçalho */
+            font-weight: bold; /* Texto em negrito */
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Fundo alternado para linhas pares */
+        }
+        tr:hover {
+            background-color: #e0f7fa; /* Azul quando passar o mouse */
+            color: rgb(0, 0, 0); /* Texto em branco ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Doadores</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Data da Doação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (donors.length > 0) { %>
+                <% donors.forEach(function(donor) { %>
+                    <tr>
+                        <td><%= donor.name %></td>
+                        <td><%= donor.phone %></td>
+                        <td><%= donor.address %></td>
+                        <td><%= donor.donationDate.toLocaleDateString() %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="4">Nenhum doador encontrado.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Doações</title>
+    <style>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:hover {
+            background-color: #e0f7fa;
+        }
+
+        .ngo-name {
+            display: inline;
+            margin-right: 5px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Doações</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Itens</th>
+                    <th>Local de Coleta</th>
+                    <th>ONG</th>
+                    <th>Entrega</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (donations.length === 0) { %>
+                    <tr>
+                        <td colspan="5">Nenhuma doação cadastrada.</td>
+                    </tr>
+                <% } else { %>
+                    <% donations.forEach(function(donation) { %>
+                        <tr>
+                            <td><%= donation.items %></td>
+                            <td><%= donation.pickupLocation %></td>
+                            <td><%= donation.ngoId ? donation.ngoId.name : 'Nenhuma ONG' %></td>
+                            <td><%= donation.delivery ? new Date(donation.delivery).toLocaleDateString('pt-BR') : 'Não especificada' %></td>
+                            <td>
+                                <form action="/donations/<%= donation._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta doação?');">
+                                    <button type="submit">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
